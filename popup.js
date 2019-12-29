@@ -9,7 +9,10 @@ const scriptCodeCollect =
         		// remove empty images
         		imagestodownload = [];
         		for (img of srcArray) {
-        			if (img) imagestodownload.push(img);
+        			if (img) {
+        				img.substring("data:image/".length, img.indexOf(";base64"));
+        				console.log(img);	
+        			}imagestodownload.push(img);
         		};
 				result.savedImages = imagestodownload;
 				chrome.storage.local.set(result);
@@ -43,5 +46,5 @@ window.onload = function() {
 	downloadButton.onclick = function() {
 		downloadButton.innerHTML = "Downloaded ";
 		chrome.tabs.executeScript({code : scriptCodeDownload});
-	};		
+	};
 };
