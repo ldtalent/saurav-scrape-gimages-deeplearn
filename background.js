@@ -25,7 +25,7 @@ chrome.runtime.onMessage.addListener(
       let srcArray = message.savedImages;
       var counter = 1;
       for (let src of srcArray) {
-      	chrome.downloads.download({url:src, filename:"GoogleImages/"+counter+".jpg"});
+      	chrome.downloads.download({url:src, filename:"GoogleImages/"+counter});
       	counter++;
       };
    });
